@@ -1,9 +1,21 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Algortimso y estructura de DATOS
+ * Freddy José Ruíz Gatica
+ * Samuel Díaz
+ * Christhoper Ajú
+ * 
+ * Clase:
+ * BinaryTreeControl:
+ * En ella se encuentran todos los métodos
+ * Para el manejo de un BinaryTree
+ * /
+
 import java.util.Stack;
 
 public class BinaryTreeControl{
 	BinaryTree<Association<String,String>> root = null;
 <<<<<<< HEAD
-	//Comparador comparador = new Comparador();
 =======
 >>>>>>> origin/master
 	protected Stack<BinaryTree<Association<String,String>>> todo = new Stack<BinaryTree<Association<String,String>>>();
