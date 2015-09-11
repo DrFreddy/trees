@@ -1,3 +1,11 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y Estructura de datos
+ * Laboratorio #7
+ * @author Freddy José Ruíz 14592 
+ *         Christopher Ajú 13171
+ *	       Samuel Díaz 
+ */
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -10,15 +18,22 @@ public class Lectura {
 	private String textoC, textoC1, linea, linea1, textoL, textoL1, traduccion;
 	private String[] palabras;
 	
-	//Constructor
+	/**
+	 * Constructor de la clase lectura:
+	 * En el se inicializa un nuevo árbol binario
+	 */
 	public Lectura() {
 		traductorTree = new BinaryTreeControl();
 	}
 	
-	//Recorrido in orden del arbol;
+	/**
+	 * Recorrido in order del árbol
+	 * para la muestra de resultados
+	 *
+	 */
+	
 	public void inOrder(){
 		int i=0;
-		
 		traductorTree.resetIterator();
 		System.out.println("A continuación se muestran las asociaciones in Order del árbol");
 		while(traductorTree.hasNext()){
@@ -43,33 +58,20 @@ public class Lectura {
 		}
 	}
 	
-	//Método para obtener la traducción 
-	public void getTraduccion(String[] ingles){
-		String traducido="";
-		traductorTree.resetIterator();
-		/*while(traductorTree.hasNext()){
-			Association<String,String> inglesEspanol = traductorTree.next();
-			 for (int i=0; i< palabras.length; i++){
-	          	  palabras[i]= palabras[i].toLowerCase();
-	          	 if (Arrays.asList(palabras).indexOf(inglesEspanol.getKey())== -1){
-	          		traducido=traducido+" "+"*"+inglesEspanol.getValue()+"*";
-	          		//System.out.println(traducido);
-	          	 }
-	          	 else{
-	          		 traducido=traducido+" "+palabras[i];
-	          	 }
-			 }
-		}*/
-		System.out.println(resultado);
-	}
-	
 	//Regresa el arbol actual
 	public BinaryTreeControl getArbol(){
 		return traductorTree;
 	}
 
-	
-	public void lecturaAsociacion(String texto) throws FileNotFoundException, Exception{
+	/**
+	 * Método LecturaDiccionario
+	 * Está encargado de leer los datos del diccionario
+	 * y de su almacenamiento en el árbol binario
+	 * @param texto
+	 * @throws FileNotFoundException
+	 * @throws Exception
+	 */
+	public void lecturaDiccionario(String texto) throws FileNotFoundException, Exception{
 	 
 		try{
 			File archivo = new File (texto);
@@ -103,7 +105,15 @@ public class Lectura {
 	        }
 	     
 	}
-	
+	/**
+	 * 
+	 * Método LecturaTraducción
+	 * Está encargado de leer el string a traducir
+	 * y de la muestra de la traducción
+	 * @param texto
+	 * @throws FileNotFoundException
+	 * @throws Exception
+	 */
 	public void lecturaTraduccion(String texto)throws FileNotFoundException, Exception{
 		
 		//*********************LECTURA DEL TEXTO A TRADUCIR********************
@@ -135,7 +145,7 @@ public class Lectura {
        //Muestra de los datos del diccionario inOrder
          inOrder();
             System.out.println("Esta es la traducción al Español: ");
-            getTraduccion(palabras);
+        	System.out.println(resultado);
           
 		}
 		
