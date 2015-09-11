@@ -2,7 +2,7 @@ import java.util.Stack;
 
 public class BinaryTreeControl{
 	BinaryTree<Association<String,String>> root = null;
-	Comparador comparador = new Comparador();
+	//Comparador comparador = new Comparador();
 	protected Stack<BinaryTree<Association<String,String>>> todo = new Stack<BinaryTree<Association<String,String>>>();
 	int contador = 0;
 	

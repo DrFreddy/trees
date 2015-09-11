@@ -9,9 +9,9 @@ public class main{
 
 	public static void main(String[] args){
 		Lectura traductor = new Lectura();
-		System.out.println ("BIENVENIDO AL DICCIONARIO INGLÉS-ESPAÑOL");
-		System.out.println("A continuación traduciremos el texto ingresado...");
-		System.out.println("Este es el texto en inglés:");
+		System.out.println ("BIENVENIDO AL DICCIONARIO INGLES-ESPANOL");
+		System.out.println("A continuacion traduciremos el texto ingresado...");
+		System.out.println("Este es el texto en ingles:");
 		
 		//Lectura del diccionario
 		try {
@@ -29,10 +29,7 @@ public class main{
 		catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		//Muestra de los datos del diccionario inOrder
-		traductor.inOrder();
-	
+		}	
 		
 	}
 

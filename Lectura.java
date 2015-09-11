@@ -5,7 +5,7 @@ import java.io.FileReader;
 import java.util.Arrays;
 
 public class Lectura {
-	
+	private String resultado = "";
 	private BinaryTreeControl traductorTree;
 	private String textoC, textoC1, linea, linea1, textoL, textoL1, traduccion;
 	private String[] palabras;
@@ -25,28 +25,43 @@ public class Lectura {
 			i++;
 			Association<String,String> inglesEspanol = traductorTree.next();
 			System.out.println(i+")"+" Inglés: "+inglesEspanol.getKey()+" Español: "+inglesEspanol.getValue());
+			for(int f=0; f<(palabras.length);f++){
+				//se busca en todo el array si una palabra en ingles coincide con la llave
+				if ((palabras[f]).equals(inglesEspanol.getKey())){
+					palabras[f] = inglesEspanol.getValue();
+				}
+				//System.out.print(palabras[f] + " ");
 			}
+			System.out.print("\n");
+		}
 		
-			}
+		//for de concatenado
+		for(int f=0; f<(palabras.length);f++){
+			//se recorre el array y se convierte a un string
+			resultado = resultado + palabras[f] + " ";
+			
+		}
+	}
 	
 	//Método para obtener la traducción 
-			public void getTraduccion(String[] ingles){
-			String traducido="";
-			traductorTree.resetIterator();
-			while(traductorTree.hasNext()){
+	public void getTraduccion(String[] ingles){
+		String traducido="";
+		traductorTree.resetIterator();
+		/*while(traductorTree.hasNext()){
 			Association<String,String> inglesEspanol = traductorTree.next();
 			 for (int i=0; i< palabras.length; i++){
 	          	  palabras[i]= palabras[i].toLowerCase();
 	          	 if (Arrays.asList(palabras).indexOf(inglesEspanol.getKey())== -1){
 	          		traducido=traducido+" "+"*"+inglesEspanol.getValue()+"*";
+	          		//System.out.println(traducido);
 	          	 }
 	          	 else{
 	          		 traducido=traducido+" "+palabras[i];
 	          	 }
 			 }
-			}
-			System.out.println(traducido);
-		}
+		}*/
+		System.out.println(resultado);
+	}
 	
 	//Regresa el arbol actual
 	public BinaryTreeControl getArbol(){
@@ -115,8 +130,10 @@ public class Lectura {
               	palabras= textoL1.split(" ");
               
               }
-           
+         
          System.out.println(textoL1);
+       //Muestra de los datos del diccionario inOrder
+         inOrder();
             System.out.println("Esta es la traducción al Español: ");
             getTraduccion(palabras);
           
